@@ -35,18 +35,20 @@ char* UserDataBase::GenerateAccountNumber(int length){
 }
 
 void UserDataBase::CreateUser(){
-	
-	cout<<"What is your name?"<<endl;
 	string name;
+	cout<<"What is your name?"<<endl;
+	cin.ignore();
 	getline(cin,name);
 	cout<<"How much would you like to put in your bank account?"<<endl;
 	cin>>balance;
-	if (balance < 1000){
-		GenerateAccountNumber(vip_user_length);
+	if (balance >= 1000){
+		char* value = GenerateAccountNumber(vip_user_length);
+		cout<<value<<endl;
 	}
 	else {
-		GenerateAccountNumber(normal_user_length);
-	}
+		char* value = GenerateAccountNumber(normal_user_length);
+		cout <<value<<endl;
+	}	
 
 }
 
@@ -89,10 +91,6 @@ void MyBankActions::withdraw(){
 }
 
 void MyBankActions::displayStatement(){
-    
-}
-
-void MyBankActions::displayStatement(){
 	cout<<"Your current balance is: "<<balance<<endl;
 }
 
@@ -103,10 +101,10 @@ void transfer(){
 
 
 int  main(){
-    string name ; 
+    //string name ; 
     int balance; 
-    cout<<"What is the user name for your bank account?"<<endl;
-    getline(cin,name);
+    //cout<<"What is the user name for your bank account?"<<endl;
+    //getline(cin,name);
     cout<<"what are the initial balance you want to put in your account?"<<endl;
     cin>>balance;
 
